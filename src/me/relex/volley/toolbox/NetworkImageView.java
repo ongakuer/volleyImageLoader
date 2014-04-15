@@ -205,7 +205,8 @@ public class NetworkImageView extends ImageView {
             setImageBitmap(bitmap);
         } else {
             TransitionDrawable td = new TransitionDrawable(new Drawable[] {
-                    new ColorDrawable(Color.TRANSPARENT),
+                    (mDefaultImageId != 0 ? getContext().getResources()
+                            .getDrawable(mDefaultImageId) : new ColorDrawable(Color.TRANSPARENT)),
                     new BitmapDrawable(getContext().getResources(), bitmap) });
             td.startTransition(200);
             setImageDrawable(td);
